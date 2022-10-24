@@ -1,6 +1,8 @@
 {
   "development": {
-    "database": "auth_boilerplate",
+    "username": "postgres",
+    "password": "timaalattar",
+    "database": "queue_me",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
