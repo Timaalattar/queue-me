@@ -12,7 +12,7 @@ module.exports = {
       userId: {
         type: Sequelize.INTEGER
       },
-      askquestionsId: {
+      askquestionId: {
         type: Sequelize.INTEGER
       },
       createdAt: {

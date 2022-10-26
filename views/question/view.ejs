@@ -1,15 +1,14 @@
 
-<form method="POST" action="/view/<%= askquestionId %>">
-<Div>
+
+<div>
 <h2><%= askquestion.title %> </h2>
-<h3><%= askquestion.category</h3>
-<h4><%= user.name</h4>
-</Div>
+<h3><%= askquestion.category %></h3>
+<h4><%= user.fullName %></h4>
+</div>
 
 
 <div>
 
-  <p><%= article.content %></p>
   
 </div>
 
@@ -17,12 +16,6 @@
 
 
 <div>
-  <form method="POST" action="/view/<%= askquestionId %>?_method=PUT">
-        <button type="submit">Reply</button>
-    </form> 
-    
-    <form action="/users" method="GET">
-        <button type="submit">Waitlist</button>
-    </form>   
+
 
 </div>

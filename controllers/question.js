@@ -10,7 +10,7 @@ router.get('/ask', (req, res)=>{
 
 router.post('/ask', async (req, res)=>{
     try  {
-    const user = await db.user.findByPK(res.locals.user.pk);
+    const user = await db.user.findByPk(res.locals.user.id);
 
     const newQuestion = await db.askquestions.create({
         title: req.body.title,
@@ -19,10 +19,10 @@ router.post('/ask', async (req, res)=>{
     
       })
 
-      await user.addAskQuestions(newQuestion)
+      await user.addAskquestions(newQuestion)
 
         console.log('question created')
-        res.render('classeoom/index.ejs', )
+        res.render('question/view.ejs', {askquestion: newQuestion} )
 
     
     } catch (err) {
@@ -30,12 +30,22 @@ router.post('/ask', async (req, res)=>{
        res.json(err)
     }
 })
+{/* <p><%= article.content %></p> */}
+
+// <%/* <form method="POST" action="/view/<%= askquestionId %>"> */%>
+{/* <form method="POST" action="/view/<%= askquestionId %>?_method=PUT">
+<button type="submit">Reply</button>
+</form> 
+
+<form action="/users" method="GET">
+<button type="submit">Waitlist</button>
+</form>    */}
 
 router.post("/question/:id", async (req, res) => {
   try  {
-    const user = await db.user.findbyPk(res.locals.user.id) // res.locals.user.id
+    const user = await db.user.findByPk(res.locals.user.id) // res.locals.user.id
 
-    const viewQuestion = await db.askquestions.findbyPK(req.params.id) 
+    const viewQuestion = await db.askquestions.findByPk(req.params.id) 
       // user.dataValues.fullName
       // db,getUser ({fullName: req.body.fullName}))
       await user.addAskQuestions(viewQuestion)

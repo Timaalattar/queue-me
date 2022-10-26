@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html>
-<body>
+<h1>Classroom</h1>
 
-<!-- for a page split -->
-<h2>HTML Iframes</h2>
-<p>You can use the height and width attributes to specify the size of the iframe:</p>
+<% askquestions.forEach(function(author) { %>
+    <h2>
+      <a href="/questions/<%= author.id %>">
+        <%= askquestion.getTitle() %>
+      </a>
+    </h2>
+  </div>
+<% }) %>
 
-<iframe src="demo_iframe.htm" height="200" width="300" title="Iframe Example"></iframe>
-
-</body>
-</html>
