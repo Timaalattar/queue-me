@@ -1,0 +1,29 @@
+<div>
+    <h2>Welcome <%= user.fullName%></h2>
+    <ul>
+            <li><a href="">Classroom</a></li>
+            <li><a href="">Your Questions</a></li>
+            <li><a href="/question/ask">Ask Question</a></li>
+     </ul>
+     
+
+<div>
+    
+    <form action="/question/ask" method="POST">
+        <label for="category">Type of Question</label>
+        <select name="category" id="category">
+          <option value="technical">Technical Question</option>
+          <option value="debugging">Errors and Debugging</option>
+          <option value="lesson">Lesson Related</option>
+        </select>
+
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title">
+    
+        <label for="details">Details:</label>
+        <input type="text" name="text" id="text">
+    
+    
+        <button type="submit">submit</button>
+    </form>
+</div>

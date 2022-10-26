@@ -19,6 +19,7 @@ app.use(async (req, res, next)=>{
         const decryptedIdString = decryptedId.toString(cryptoJS.enc.Utf8)
         const user = await db.user.findByPk(decryptedIdString)
         res.locals.user = user
+        req.user = user
     } else res.locals.user = null
     next()
 })
@@ -27,6 +28,7 @@ app.use(async (req, res, next)=>{
 app.use('/users', require('./controllers/users'))
 app.use('/classroom', require('./controllers/classroom'))
 app.use('/waitlist', require('./controllers/waitlist'))
+app.use('/question', require('./controllers/question'))
 
 // ROUTES
 app.get('/', (req, res)=>{

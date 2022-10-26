@@ -1,0 +1,10 @@
+<h2><%= askquestion.title %> </h2>
+<h3><%= askquestion.category</h3>
+    
+<%= article.author.getFullName() %>
+
+<p>
+  <strong><%= moment(article.createdAt).calendar() %></strong>
+</p>
+
+<p><%= article.content %></p>
