@@ -1,10 +1,28 @@
+
+<form method="POST" action="/view/<%= askquestionId %>">
+<Div>
 <h2><%= askquestion.title %> </h2>
 <h3><%= askquestion.category</h3>
+<h4><%= user.name</h4>
+</Div>
+
+
+<div>
+
+  <p><%= article.content %></p>
+  
+</div>
+
+</form>
+
+
+<div>
+  <form method="POST" action="/view/<%= askquestionId %>?_method=PUT">
+        <button type="submit">Reply</button>
+    </form> 
     
-<%= article.author.getFullName() %>
+    <form action="/users" method="GET">
+        <button type="submit">Waitlist</button>
+    </form>   
 
-<p>
-  <strong><%= moment(article.createdAt).calendar() %></strong>
-</p>
-
-<p><%= article.content %></p>
+</div>
