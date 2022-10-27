@@ -30,16 +30,6 @@ router.post('/ask', async (req, res)=>{
        res.json(err)
     }
 })
-{/* <p><%= article.content %></p> */}
-
-// <%/* <form method="POST" action="/view/<%= askquestionId %>"> */%>
-{/* <form method="POST" action="/view/<%= askquestionId %>?_method=PUT">
-<button type="submit">Reply</button>
-</form> 
-
-<form action="/users" method="GET">
-<button type="submit">Waitlist</button>
-</form>    */}
 
 router.post("/question/:id", async (req, res) => {
   try  {
@@ -61,5 +51,21 @@ router.post("/question/:id", async (req, res) => {
     }
 })
 
+router.get('/view/:id', async (req, res)=>{
+  try  {
+    const user = await db.user.findAll() // res.locals.user.id // res.locals.user.id
+  
+    const viewQuestion = await db.askquestions.findByPk(req.params.id)
 
+        console.log('single question viewed')
+        // res.render('classroom/index.ejs', {question: viewQuestion} )
+        res.render('question/view.ejs', {askquestion: viewQuestion} )
+  
+    
+    } catch (err) {
+       console.log(err) 
+       res.json(err)
+    }
+
+})
 module.exports = router
