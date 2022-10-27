@@ -1,13 +1,16 @@
 <h1>Classroom</h1>
 
-<% listQuestions.forEach(function(question) { %>
+<% listQuestions.forEach(function(q) { %>
     <h2>
-      <a href="/question/view/<%= question.id %>">
-        <%= question.title %>
+      <a href="/question/view/<%= q.id %>">
+        <%= q.title %>
       </a>
     </h2>
-    <h3><%= question.category %></h3>
-    <h4><%= question.user %></h4>
+    <h3><%= q.category %></h3>
+    <% if (q.users.length) { %>
+        <h4>USER <%= q.users[0].fullName  %></h4>
+    <% } %>
+    <p><%= q.question %></p>
          
   </div>
 <% }) %>

@@ -35,14 +35,14 @@ router.post("/question/:id", async (req, res) => {
   try  {
     const user = await db.user.findByPk(res.locals.user.id) // res.locals.user.id
 
-    const viewQuestion = await db.askquestions.findByPk(req.params.id) 
+    const oneQuestion = await db.askquestions.findByPk(req.params.id) 
       // user.dataValues.fullName
       // db,getUser ({fullName: req.body.fullName}))
-      await user.addAskQuestions(viewQuestion)
+      await user.addAskQuestions(oneQuestion)
       await user.getAskQuestions()
 
         console.log('question viewed')
-        res.render('question/view.ejs', {} )
+        res.render('question/view.ejs', {askQuestion: oneQuestion}, {user:user} )
 
     
     } catch (err) {
@@ -59,7 +59,7 @@ router.get('/view/:id', async (req, res)=>{
 
         console.log('single question viewed')
         // res.render('classroom/index.ejs', {question: viewQuestion} )
-        res.render('question/view.ejs', {askquestion: viewQuestion} )
+        res.render('question/view.ejs', {askquestion: viewQuestion, user:user} )
   
     
     } catch (err) {

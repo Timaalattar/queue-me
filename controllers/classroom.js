@@ -6,14 +6,17 @@ router.get('/', async (req, res)=>{
     try  {
       const user = await db.user.findAll() // res.locals.user.id // res.locals.user.id
     
-      const listQuestion = await db.askquestions.findAll()
+      const listQuestion = await db.askquestions.findAll({include: [db.user]})
+
+    //   console.log(listQuestion[0])
         // user.dataValues.fullName
         // db,getUser ({fullName: req.body.fullName}))
         // await user.addAskQuestions(viewQuestion)
         // await user.getAskQuestions()
     
-          console.log('question viewed')
-          res.render('classroom/index.ejs', { listQuestions: listQuestion} )
+        //   console.log('question list viewed')
+          res.render('classroom/index.ejs', {listQuestions: listQuestion} )
+        //   res.json(listQuestion)
     
       
       } catch (err) {
