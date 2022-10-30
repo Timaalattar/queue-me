@@ -2,6 +2,9 @@ const express = require('express')
 const db = require('../models')
 const router = express.Router()
 
+
+//Get the list of questions on the classroom page
+
 router.get('/', async (req, res)=>{
     try  {
       const user = await db.user.findAll() // res.locals.user.id // res.locals.user.id

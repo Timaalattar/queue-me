@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       models.askquestions.belongsToMany(models.user, { through: "user_askequestions" })
       models.askquestions.belongsToMany(models.waitlist, { through: "askquestions_waitlist" })
+      models.askquestions.hasMany(models.comments)
     }
   }
   askquestions.init({
