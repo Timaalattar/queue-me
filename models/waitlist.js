@@ -10,14 +10,15 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      models.waitlist.belongsToMany(models.askquestions, { through: "askquestions_waitlist" })
+      models.waitlist.belongsTo(models.question)
     }
   }
   waitlist.init({
     category: DataTypes.STRING,
     officeHour: DataTypes.STRING,
     breakTime: DataTypes.STRING,
-    answer: DataTypes.STRING
+    answer: DataTypes.STRING,
+    askquestionId: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'waitlist',

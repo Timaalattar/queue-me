@@ -7,8 +7,8 @@
       </a>
     </h2>
     <h3><%= q.category %></h3>
-    <% if (q.users.length) { %>
-        <h4>USER <%= q.users[0].fullName  %></h4>
+    <% { %>
+        <h4>USER <%= q.user.fullName  %></h4>
     <% } %>
     <p><%= q.question %></p>
          

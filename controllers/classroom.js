@@ -9,7 +9,7 @@ router.get('/', async (req, res)=>{
     try  {
       const user = await db.user.findAll() // res.locals.user.id // res.locals.user.id
     
-      const listQuestion = await db.askquestions.findAll({include: [db.user]})
+      const listQuestion = await db.question.findAll({include: [db.user]})
 
     //   console.log(listQuestion[0])
         // user.dataValues.fullName
@@ -19,7 +19,8 @@ router.get('/', async (req, res)=>{
     
         //   console.log('question list viewed')
           res.render('classroom/index.ejs', {listQuestions: listQuestion} )
-        //   res.json(listQuestion)
+          // res.send(listQuestion)
+          // res.json(listQuestion)
     
       
       } catch (err) {

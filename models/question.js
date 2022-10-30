@@ -3,22 +3,27 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class askquestions_waitlist extends Model {
+  class question extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      models.question.belongsTo(models.user)
+      models.question.belongsTo(models.waitlist)
+      models.question.hasMany(models.comment)
     }
   }
-  askquestions_waitlist.init({
-    askquestionsId: DataTypes.INTEGER,
+  question.init({
+    title: DataTypes.STRING,
+    question: DataTypes.STRING,
+    category: DataTypes.STRING,
+    userId: DataTypes.INTEGER,
     waitlistId: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'askquestions_waitlist',
+    modelName: 'question',
   });
-  return askquestions_waitlist;
+  return question;
 };

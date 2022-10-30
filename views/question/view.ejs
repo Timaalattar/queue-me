@@ -3,18 +3,18 @@
 <div>
 <h2><%= askQuestion.title %> </h2>
 <h3><%= askQuestion.category %></h3>
-<h4>User<%= askQuestion.users[0].fullName  %></h4>
+<h4>User<%= askQuestion.user.fullName  %></h4>
 <p><%= askQuestion.question%></p>
 </div>
 <div>
-    <form action="/view/<%= askQuestion.id %>" method="POST">
+    <form action="/question/view/<%=askQuestion.id%>" method="POST">
 
-        <input type="text" name="comment" autocomplete="off">
+        <input type="input" name="comment" autocomplete="off">
     
         <button type="submit">Add comment</button>
     </form>
     
-     <% askQuestion.users[0].comments.forEach(c => { %>
+     <% askQuestion.comments.forEach(c => { %>
             <p>
                 <%= c.comment %>
             </p>
